@@ -10,7 +10,7 @@ const Info = () => {
 
     return (
         <div
-            className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
+            className='grid grid-cols-1 lg:grid-cols-3 gap-5 px-12'>
             <InfoCard
                 bgClass={"bg-gradient-to-r from-secondary to-primary"}
                 cardTitle={cardTitle[0]}
