@@ -2,6 +2,7 @@ import React from 'react';
 import people1 from "../../../assets/images/people1.png";
 import people2 from "../../../assets/images/people2.png";
 import people3 from "../../../assets/images/people3.png";
+import quote from '../../../assets/icons/quote.svg';
 import PatientsFeedback from './PatientsFeedback';
 
 const Testimonial = () => {
@@ -38,9 +39,14 @@ const Testimonial = () => {
 
     return (
         <div className="my-24">
-            <div className="my-4">
-                <h3 className='text-secondary text-lg font-medium'>Testimonial</h3>
-                <h2 className='text-accent text-4xl'>What Our Patients Says</h2>
+            <div className="flex items-center justify-between my-4">
+                <div className="">
+                    <h3 className='text-secondary text-lg font-medium'>Testimonial</h3>
+                    <h2 className='text-accent text-4xl'>What Our Patients Says</h2>
+                </div>
+                <div className="">
+                    <img className='w-48 h-40' src={quote} alt="" />
+                </div>
             </div>
             <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 ">
                 {
