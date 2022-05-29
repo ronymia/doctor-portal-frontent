@@ -1,0 +1,26 @@
+import React from 'react';
+
+const PatientsFeedback = ({ feedback }) => {
+    const { name, img, description, country } = feedback;
+
+    return (
+        <div class="card lg:max-w-lg bg-base-100 shadow-xl">
+            <div class="card-body">
+                <p>{description}</p>
+            </div>
+            <div className="flex gap-x-8 items-center pl-7 pb-7 ">
+                <div class="avatar">
+                    <div class="w-[75px] h-[75px] rounded-full ring ring-secondary ring-offset-base-100 ring-offset-2">
+                        <img src={img} />
+                    </div>
+                </div>
+                <div className="">
+                    <p>{name}</p>
+                    <p>{country}</p>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default PatientsFeedback;
