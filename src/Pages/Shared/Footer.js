@@ -31,7 +31,7 @@ const Footer = () => {
                     <Link to='/ssc' className="link link-hover">Cookie policy</Link>
                 </div>
             </div>
-            <footer className="footer footer-center p-4">
+            <footer className="footer footer-center p-4 my-5">
                 <div>
                     <p>Copyright © 2022 - All right reserved by The Dentist Portal</p>
                 </div>
