@@ -12,18 +12,18 @@ const Info = () => {
         <div
             className='grid grid-cols-1 lg:grid-cols-3 gap-5 px-12'>
             <InfoCard
-                bgClass={"bg-gradient-to-r from-secondary to-primary"}
+                bgclassName={"bg-gradient-to-r from-secondary to-primary"}
                 cardTitle={cardTitle[0]}
                 description={description[0]}
                 img={clock}></InfoCard>
 
-            <InfoCard bgClass={"bg-accent"}
+            <InfoCard bgclassName={"bg-accent"}
                 cardTitle={cardTitle[1]}
                 description={description[1]}
                 img={marker}></InfoCard>
 
             <InfoCard
-                bgClass={"bg-gradient-to-r from-secondary to-primary"}
+                bgclassName={"bg-gradient-to-r from-secondary to-primary"}
                 cardTitle={cardTitle[2]}
                 description={description[2]}
                 img={phone}></InfoCard>
