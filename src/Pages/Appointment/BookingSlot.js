@@ -18,7 +18,7 @@ const BookingSlot = ({ bookingSlot, setTreatment }) => {
                 <p className='uppercase'>{slots.length} {slots.length > 1 ? "Spaces" : "Space"} Available</p>
                 <div className="card-actions justify-center">
                     <label
-                        for="booking-modal"
+                        htmlFor="booking-modal"
                         className="btn btn-secondary bg-gradient-to-r from-secondary to-primary uppercase text-white border-0 rounded-lg"
                         disabled={slots.length === 0}
                         onClick={() => setTreatment(bookingSlot)}
