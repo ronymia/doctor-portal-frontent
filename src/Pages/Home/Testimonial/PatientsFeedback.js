@@ -11,7 +11,7 @@ const PatientsFeedback = ({ feedback }) => {
             <div className="flex gap-x-8 items-center pl-7 pb-7 ">
                 <div className="avatar">
                     <div className="w-[75px] h-[75px] rounded-full ring ring-secondary ring-offset-base-100 ring-offset-2">
-                        <img src={img} />
+                        <img src={img} alt='loading...' />
                     </div>
                 </div>
                 <div className="">
