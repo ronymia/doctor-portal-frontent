@@ -4,6 +4,11 @@ import auth from '../../firebase.init';
 
 const User = () => {
 
+    const handleSignOut = () => {
+        signOut(auth);
+        localStorage.removeItem('accessToken');
+    }
+
     return (
         <div className="dropdown dropdown-end">
             <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
@@ -20,7 +25,7 @@ const User = () => {
                 </li>
                 <li><a>Settings</a></li>
                 <li><button
-                    onClick={() => signOut(auth)}
+                    onClick={() => handleSignOut()}
                     className="btn btn-ghost">Sign Out</button>
                 </li>
             </ul>
