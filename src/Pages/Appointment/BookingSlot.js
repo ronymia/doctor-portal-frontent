@@ -1,7 +1,7 @@
 import React from 'react';
 
 const BookingSlot = ({ bookingSlot, setTreatment }) => {
-    const { name, slots, _id } = bookingSlot;
+    const { name, slots } = bookingSlot;
 
     return (
         <div className="card max-w-lg bg-base-100 shadow-xl">

@@ -7,6 +7,7 @@ import {
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useToken from '../../hooks/useToken';
 import Loading from '../Shared/Loading';
 
 const Signup = () => {
@@ -22,6 +23,7 @@ const Signup = () => {
     const [updateProfile,
         updating,
         updateError] = useUpdateProfile(auth);
+    const [token] = useToken(user || googleUser);
 
     const { register,
         formState: { errors },
@@ -40,7 +42,7 @@ const Signup = () => {
         signInError = <p className='text-red-500 mb-3'><small>{googleError?.message}{error?.message} {updateError?.message}</small></p>
     }
 
-    if (googleUser || user) {
+    if (token) {
         navigate(from, { replace: true });
     }
 

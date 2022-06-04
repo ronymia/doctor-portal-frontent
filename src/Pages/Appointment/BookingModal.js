@@ -2,24 +2,48 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { format } from 'date-fns';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
-const BookingModal = ({ treatment, setTreatment, date }) => {
+const BookingModal = ({ treatment, setTreatment, date, refetch }) => {
     // const { register, handleSubmit } = useForm();
-    const { name, slots } = treatment;
-    const [user, loading, error] = useAuthState(auth)
-
-    console.log(user.displayName);
+    const { _id, name, slots } = treatment;
+    const [user, loading, error] = useAuthState(auth);
+    const formattedDate = format(date, 'PP');
 
     const handleBooking = event => {
         event.preventDefault();
-        const name = event.target.name.value;
-        const date = event.target.date.value;
-        const slot = event.target.slot.value;
-        const email = event.target.email.value;
-        const number = event.target.number.value;
 
-        setTreatment(null);
+        const slot = event.target.slot.value;
+        const booking = {
+            treatmentId: _id,
+            treatment: name,
+            date: formattedDate,
+            slot,
+            patient: user?.email,
+            patientName: user?.displayName,
+            phone: event.target.number.value
+        }
+        fetch('http://localhost:5000/booking', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(booking)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.success) {
+                    toast(`Your Appointment set ${formattedDate} at ${slot}`)
+                }
+                else {
+                    toast(`Your already have an appointment on ${formattedDate} at ${slot}`)
+                }
+                refetch();
+                //for closing the modal
+                setTreatment(null);
+            })
     }
 
     return (
@@ -47,13 +71,13 @@ const BookingModal = ({ treatment, setTreatment, date }) => {
                                         value={slot}>{slot}</option>)
                             }
                         </select>
-                        <input type="text" name='name' value={user.displayName} disabled
+                        <input type="text" name='name' value={user?.displayName} disabled
                             // {...register("name", { required: true })}
                             className="input input-bordered w-full max-w-xs"
                             placeholder='Full Name'
                         />
 
-                        <input type="email" name='email' value={user.email} disabled
+                        <input type="email" name='email' value={user?.email} disabled
                             // {...register("email", { required: true })}
                             className="input input-bordered w-full max-w-xs"
                             placeholder='Email'
