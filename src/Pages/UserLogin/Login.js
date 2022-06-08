@@ -16,7 +16,7 @@ const Login = () => {
         user,
         loading,
         error] = useSignInWithEmailAndPassword(auth);
-    const [token] = useToken(user);
+    const [token] = useToken(user || googleUser);
 
     const { register,
         formState: { errors },

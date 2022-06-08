@@ -112,7 +112,7 @@ const Signup = () => {
                                 type="password"
                                 placeholder="Password"
                                 className="input input-bordered w-full max-w-xs"
-                                {...register("password", {
+                                {...register("specialty", {
                                     required: {
                                         value: true,
                                         message: "Your Password is required"
