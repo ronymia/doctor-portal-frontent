@@ -7,7 +7,7 @@ import auth from '../../firebase.init';
 
 const BookingModal = ({ treatment, setTreatment, date, refetch }) => {
     // const { register, handleSubmit } = useForm();
-    const { _id, name, slots } = treatment;
+    const { _id, name, slots, price } = treatment;
     const [user, loading, error] = useAuthState(auth);
     const formattedDate = format(date, 'PP');
 
@@ -81,6 +81,10 @@ const BookingModal = ({ treatment, setTreatment, date, refetch }) => {
                             // {...register("email", { required: true })}
                             className="input input-bordered w-full max-w-xs"
                             placeholder='Email'
+                        />
+                        <input type="email" name='price' value={price} disabled
+                            // {...register("email", { required: true })}
+                            className="input input-bordered w-full max-w-xs"
                         />
                         <input type="number" name='number'
                             // {...register("number", { required: true })}
